@@ -1,0 +1,6 @@
+Execution commands for creating the modified file after running the CUDAIntegratedTransformerTool:
+CUDAIntegratedTransformerTool --threads=128 --num-dim3-changes=1 2mm.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_2mm.cu
+
+EXTRA NOTE: --num-dim3-changes command line option can be used to 
+modify the specific number of dim3 declarations given in the source code.
+"In this case only 1 dim3's declaration parameters are modified"

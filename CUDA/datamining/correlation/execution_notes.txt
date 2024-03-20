@@ -1,0 +1,12 @@
+Execution commands for creating the modified file after running the CUDAIntegratedTransformerTool:
+
+First call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_1_X" correlation.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_1_correlation.cu
+
+Second call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_2_X" modified_1_correlation.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_2_correlation.cu
+
+Third call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_3_X" modified_2_correlation.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_3_correlation.cu
+
+Fourth call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_3_Y" partially_modified_3_correlation.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_4_correlation.cu
+
+
+Fifth call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_4_X" modified_4_correalation.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_correlation.cu

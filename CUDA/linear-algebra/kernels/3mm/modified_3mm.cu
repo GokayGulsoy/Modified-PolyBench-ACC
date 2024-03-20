@@ -237,10 +237,10 @@ void mm3Cuda(int ni, int nj, int nk, int nl, int nm,
 	cudaMemcpy(F_gpu, F, sizeof(DATA_TYPE) * NJ * NL, cudaMemcpyHostToDevice);
 	cudaMemcpy(G_gpu, G, sizeof(DATA_TYPE) * NI * NL, cudaMemcpyHostToDevice);	
 	
-	dim3 block(DIM_THREAD_BLOCK_X, DIM_THREAD_BLOCK_Y);
-	dim3 grid1((size_t)(ceil( ((float)NJ) / ((float)DIM_THREAD_BLOCK_X) )),(size_t)(ceil((float)NI/ ((float)DIM_THREAD_BLOCK_Y) )));
-	dim3 grid2((size_t)(ceil( ((float)NL) / ((float)DIM_THREAD_BLOCK_X) )),(size_t)(ceil((float)NJ/ ((float)DIM_THREAD_BLOCK_Y) )));
-	dim3 grid3((size_t)(ceil( ((float)NL) / ((float)DIM_THREAD_BLOCK_X) )),(size_t)(ceil((float)NI/ ((float)DIM_THREAD_BLOCK_Y) )));
+	dim3 block(128, 128);
+	dim3 grid1((size_t)(ceil( ((float)NJ) / ((float)128) )),(size_t)(ceil((float)NI/ ((float)128) )));
+	dim3 grid2((size_t)(ceil( ((float)NL) / ((float)128) )),(size_t)(ceil((float)NJ/ ((float)128) )));
+	dim3 grid3((size_t)(ceil( ((float)NL) / ((float)128) )),(size_t)(ceil((float)NI/ ((float)128) )));
 
 	/* Start timer. */
   	polybench_start_instruments;

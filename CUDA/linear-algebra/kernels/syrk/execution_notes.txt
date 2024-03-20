@@ -1,0 +1,5 @@
+Execution commands for creating the modified file after running the CUDAIntegratedTransformerTool:
+
+First call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_X" syrk.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > partially_modified_syrk.cu
+
+Second call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_Y" partially_modified_syrk.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_syrk.cu

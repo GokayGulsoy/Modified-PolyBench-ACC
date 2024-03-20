@@ -1,0 +1,10 @@
+Execution commands for creating the modified file after running the CUDAIntegratedTransformerTool:
+
+CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-dim3-x=true 3mm.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_3mm.cu
+
+
+CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-dim3-y=true modified_3mm.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > Modified_3mm.cu
+
+
+EXTRA NOTE: --change-specific command line option can be used to change
+specific variable DIM_THREAD_BLOCK_X or DIM_THREAD_BLOCK_Y

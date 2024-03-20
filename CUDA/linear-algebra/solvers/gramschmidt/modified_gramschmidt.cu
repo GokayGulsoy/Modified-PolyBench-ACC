@@ -173,10 +173,10 @@ __global__ void gramschmidt_kernel3(int ni, int nj, DATA_TYPE *a, DATA_TYPE *r, 
 
 void gramschmidtCuda(int ni, int nj, DATA_TYPE POLYBENCH_2D(A,NI,NJ,ni,nj), DATA_TYPE POLYBENCH_2D(R,NJ,NJ,nj,nj), DATA_TYPE POLYBENCH_2D(Q,NI,NJ,ni,nj), DATA_TYPE POLYBENCH_2D(A_outputFromGpu,NI,NJ,ni,nj))
 {
-	dim3 block(DIM_THREAD_BLOCK_X, DIM_THREAD_BLOCK_Y);
+	dim3 block(128, DIM_THREAD_BLOCK_Y);
 	dim3 gridKernel1(1, 1);
-	dim3 gridKernel2((size_t)ceil(((float)NJ) / ((float)DIM_THREAD_BLOCK_X)), 1);
-	dim3 gridKernel3((size_t)ceil(((float)NJ) / ((float)DIM_THREAD_BLOCK_X)), 1);
+	dim3 gridKernel2((size_t)ceil(((float)NJ) / ((float)128)), 1);
+	dim3 gridKernel3((size_t)ceil(((float)NJ) / ((float)128)), 1);
 	
 	DATA_TYPE *A_gpu;
 	DATA_TYPE *R_gpu;

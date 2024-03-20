@@ -1,0 +1,7 @@
+Execution commands for creating the modified file after running the CUDAIntegratedTransformerTool:
+
+First call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_1_X" covariance.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_1_covariance.cu
+
+Second call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_2_X" modified_1_covariance.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_2_covariance.cu
+
+Third call-) CUDAIntegratedTransformerTool --threads=128 --change-specific=true --change-var-name="DIM_THREAD_BLOCK_KERNEL_3_X" modified_2_covariance.cu -- -I/home/gokay/PolyBench-ACC/common --cuda-gpu-arch=sm_75 > modified_covariance.cu

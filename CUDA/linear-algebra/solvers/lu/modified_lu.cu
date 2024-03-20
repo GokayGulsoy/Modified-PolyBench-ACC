@@ -125,8 +125,8 @@ void luCuda(int n, DATA_TYPE POLYBENCH_2D(A,N,N,n,n), DATA_TYPE POLYBENCH_2D(A_o
 	cudaMalloc(&AGpu, N * N * sizeof(DATA_TYPE));
 	cudaMemcpy(AGpu, A, N * N * sizeof(DATA_TYPE), cudaMemcpyHostToDevice);
 
-	dim3 block1(DIM_THREAD_BLOCK_KERNEL_1_X,DIM_THREAD_BLOCK_KERNEL_1_Y);
-	dim3 block2(DIM_THREAD_BLOCK_KERNEL_2_X,DIM_THREAD_BLOCK_KERNEL_2_Y);
+	dim3 block1(128, 128);
+	dim3 block2(128, 128);
 	dim3 grid1(1,1,1);
 	dim3 grid2(1,1,1);
 
